@@ -1,0 +1,36 @@
+#include <cmath>
+#include <iostream>
+#include <math.h>
+#include <set>
+using namespace std;
+ 
+int main() {
+    multiset<int> s;
+    long long a, b, result;
+ 
+    cin >> a >> b;
+ 
+    result = b - a;
+ 
+    int numOfDigits = log10(result) + 1;
+    int numOfDigits2 = log10(a) + 1;
+ 
+    if (numOfDigits != numOfDigits2) {
+        cout << "NO";
+        return 0;
+    }
+    while (a != 0) {
+        s.insert(a % 10);
+        a /= 10;
+    }
+    while (result != 0) {
+        if (!s.contains(result % 10)) {
+            cout << "NO";
+            return 0;
+        }
+        s.erase(s.find(result % 10));
+        result /= 10;
+    }
+    cout << "YES";
+ 
+}
