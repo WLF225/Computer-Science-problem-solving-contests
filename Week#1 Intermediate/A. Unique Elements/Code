@@ -1,0 +1,32 @@
+#include <iostream>
+#include <set>
+#include <vector>
+ 
+using namespace std;
+ 
+int main() {
+ 
+    int length,count;
+ 
+    cin >> length;
+    count = length;
+ 
+    set<int> numbers, repeated;
+ 
+    for (int i = 0; i < length; i++) {
+        int temp;
+        cin >> temp;
+        if (numbers.contains(temp)) {
+            if (repeated.contains(temp))
+                count--;
+            else {
+                count -= 2;
+                repeated.insert(temp);
+            }
+        }
+        else
+            numbers.insert(temp);
+    }
+    cout << count;
+ 
+}
