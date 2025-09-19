@@ -1,0 +1,45 @@
+#include <cmath>
+#include <iostream>
+#include <vector>
+ 
+using namespace std;
+ 
+int main() {
+ 
+    int length, k,count = 0;
+ 
+    cin >> length >> k;
+ 
+    int arr[length];
+ 
+    for (int i = 0; i < length; i++) {
+        cin >> arr[i];
+    }
+ 
+    for (int i = 2; i <= length; i++) {
+        vector<int> sub;
+        for (int j = 0; j < i; j++) {
+            sub.push_back(arr[j]);
+        }
+ 
+        for (int j = i; j <= length; j++) {
+            int max = INT_MIN, min = INT_MAX;
+ 
+            for (int temp:sub) {
+                if (temp > max)
+                    max = temp;
+                if (temp < min)
+                    min = temp;
+            }
+            if (max-min == k)
+                count++;
+ 
+            sub.erase(sub.begin());
+            sub.push_back(arr[j]);
+        }
+ 
+    }
+    cout << count << endl;
+ 
+ 
+}
