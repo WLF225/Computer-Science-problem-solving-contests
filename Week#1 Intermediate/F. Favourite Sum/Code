@@ -1,0 +1,33 @@
+#include <iostream>
+ 
+ 
+using namespace std;
+ 
+int main() {
+    int cases;
+    cin >> cases;
+ 
+    for (int i = 0; i < cases; i++) {
+ 
+        int length,n;
+        cin >> length >> n;
+ 
+        int arr[length];
+ 
+        long long sum = static_cast<long long>(n)*(n+1)/2;
+        for (int i = 0; i < length; i++) {
+            cin >> arr[i];
+        }
+ 
+        for (int num:arr) {
+ 
+            if (num <= n)
+                sum -= 2*num;
+ 
+        }
+ 
+        cout << sum << endl;
+ 
+    }
+ 
+}
