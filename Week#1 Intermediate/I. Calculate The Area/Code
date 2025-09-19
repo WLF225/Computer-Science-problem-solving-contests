@@ -1,0 +1,10 @@
+#include <iostream>
+
+using namespace std;
+ 
+int main() {
+    int area;
+    cin >> area;
+ 
+    cout << area <<" " << 1;
+}
