@@ -1,0 +1,33 @@
+#include <algorithm>
+#include <cmath>
+#include <iostream>
+#include <set>
+#include <string>
+ 
+using namespace std;
+ 
+int main() {
+    int length, element;
+ 
+    long long sum = 0;
+ 
+    cin >> length;
+    int arr[length];
+ 
+ 
+    for (int i = 0; i < length; i++) {
+        cin >> arr[i];
+    }
+ 
+    sort(arr, arr + length);
+ 
+    element = arr[length / 2];
+ 
+    sum = 0;
+ 
+    for (int temp: arr) {
+        sum += abs(temp - element);
+    }
+ 
+    cout << sum;
+}
