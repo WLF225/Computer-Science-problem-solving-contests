@@ -1,0 +1,37 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+int main() {
+ 
+    string s;
+ 
+    cin >> s;
+ 
+    int nU = 0, nL = 0;
+ 
+    for (char c : s) {
+ 
+        if (c >= 'a')
+            nL++;
+        else
+            nU++;
+    }
+ 
+    if (nU > nL) {
+        for (char c : s) {
+            if (c >= 'a')
+                cout << static_cast<char>(c-32);
+            else
+                cout << c;
+        }
+    }else {
+        for (char c : s) {
+            if (c < 'a')
+                cout << static_cast<char>(c+32);
+            else
+                cout << c;
+        }
+    }
+ 
+}
